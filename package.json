@@ -1,0 +1,16 @@
+{
+  "name": "hundir-la-flota-front",
+  "version": "1.0.0",
+  "description": "Hundir la flota",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "live-server": "live-server",
+    "start": "npm run live-server"
+  },
+  "author": "David López Castellote <david.lopez.castellote@gmail.com> (https://github.com/Dellos7)",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

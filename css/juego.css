@@ -1,0 +1,90 @@
+.juego{
+    position: relative;
+}
+
+.selector-tablero{
+    display: flex;
+    justify-content: center;
+}
+
+.selector-tablero:hover{
+    cursor: pointer;
+}
+
+.selector-tablero-selector{
+    width: 45%;
+    text-align: center;
+    border: 1px solid var(--color-white);
+    background-color: transparent;
+    color: var(--color-white);
+}
+
+.selector-tablero-selector__propio,.selector-tablero-selector__rival{
+    
+}
+
+.selector-tablero-selector__propio{
+    border-radius: 7px 0 0 5px;
+}
+
+.selector-tablero-selector__rival{
+   border-radius: 0 5px 5px 0;
+}
+
+.selector-tablero-selector__seleccionado{
+    background-color: var(--color-white);
+    color: var(--color-primary);
+}
+
+.tablero{
+    position: relative;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.tablero table{
+    font-size: 2.5rem;
+    width: 100%;
+}
+
+.tablero table td{
+    text-align: center;
+    border: 1px solid;
+    width: 9.09%;
+    height: 3rem;
+}
+
+.tablero table td:hover{
+    cursor: pointer;
+}
+
+.tablero table thead td, .tablero table tbody td:first-child{
+    border: none;
+}
+
+.tablero table tbody td:not(:first-child){
+    background-color: var(--color-white);
+}
+
+/* todo: quitar */
+.tablero.tablero__rival table tbody td:not(:first-child){
+    background-color: yellow;
+}
+
+/** Media queries **/
+
+@media all and ( min-width: 768px ){
+    .tablero table{
+        max-width: 70%;
+        margin: 0 auto;
+    }
+    .tablero table td{
+        height: 4rem;
+    }
+}
+
+@media all and ( max-width: 360px ){
+    .selector-tablero{
+        font-size: 2rem;
+    }
+}

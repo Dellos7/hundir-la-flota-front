@@ -1,0 +1,189 @@
+<html>
+    <head>
+        <title>Hundir la flota</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="charset" content="utf-8">
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/form.css">
+        <link rel="stylesheet" href="css/juego.css">
+        <link rel="stylesheet" href="css/barco.css">
+        <script type="text/javascript" src="js/global.js"></script>
+        <script type="text/javascript" src="js/vista.js"></script>
+        <script type="text/javascript" src="js/controlador.js"></script>
+        <script type="text/javascript" src="js/hundirLaFlota.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Hundir la flota</h1>
+        </header>
+        <main>
+            <form id="form-comenzar-juego" method="POST" onsubmit="return controlador.comenzarJuego()">
+                <div class="form__linea">
+                    <button class="form__button" type="submit">Jugar</button>
+                </div>
+            </form>
+            <div id="juego" class="juego invisible">
+                <div class="selector-tablero">
+                    <div onclick="controlador.seleccionarMiTablero()" class="selector-tablero-selector selector-tablero-selector__propio selector-tablero-selector__seleccionado">Mi tablero</div>
+                    <div onclick="controlador.seleccionarTableroRival()" class="selector-tablero-selector selector-tablero-selector__rival">Tablero rival</div>
+                </div>
+                <div class="tablero-wrapper">
+                    <div id="tablero-propio" class="tablero tablero__propio">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td></td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td id="celda_A-1"></td><td id="celda_B-1"></td><td id="celda_C-1"></td><td id="celda_D-1"></td><td id="celda_E-1"></td><td id="celda_F-1"></td><td id="celda_G-1"></td><td id="celda_H-1"></td><td id="celda_I-1"></td><td id="celda_J-1"></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td id="celda_A-2"></td><td id="celda_B-2"></td><td id="celda_C-2"></td><td id="celda_D-2"></td><td id="celda_E-2"></td><td id="celda_F-2"></td><td id="celda_G-2"></td><td id="celda_H-2"></td><td id="celda_I-2"></td><td id="celda_J-2"></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td id="celda_A-3"></td><td id="celda_B-3"></td><td id="celda_C-3"></td><td id="celda_D-3"></td><td id="celda_E-3"></td><td id="celda_F-3"></td><td id="celda_G-3"></td><td id="celda_H-3"></td><td id="celda_I-3"></td><td id="celda_J-3"></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td id="celda_A-4"></td><td id="celda_B-4"></td><td id="celda_C-4"></td><td id="celda_D-4"></td><td id="celda_E-4"></td><td id="celda_F-4"></td><td id="celda_G-4"></td><td id="celda_H-4"></td><td id="celda_I-4"></td><td id="celda_J-4"></td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td id="celda_A-5"></td><td id="celda_B-5"></td><td id="celda_C-5"></td><td id="celda_D-5"></td><td id="celda_E-5"></td><td id="celda_F-5"></td><td id="celda_G-5"></td><td id="celda_H-5"></td><td id="celda_I-5"></td><td id="celda_J-5"></td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td id="celda_A-6"></td><td id="celda_B-6"></td><td id="celda_C-6"></td><td id="celda_D-6"></td><td id="celda_E-6"></td><td id="celda_F-6"></td><td id="celda_G-6"></td><td id="celda_H-6"></td><td id="celda_I-6"></td><td id="celda_J-6"></td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td id="celda_A-7"></td><td id="celda_B-7"></td><td id="celda_C-7"></td><td id="celda_D-7"></td><td id="celda_E-7"></td><td id="celda_F-7"></td><td id="celda_G-7"></td><td id="celda_H-7"></td><td id="celda_I-7"></td><td id="celda_J-7"></td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td id="celda_A-8"></td><td id="celda_B-8"></td><td id="celda_C-8"></td><td id="celda_D-8"></td><td id="celda_E-8"></td><td id="celda_F-8"></td><td id="celda_G-8"></td><td id="celda_H-8"></td><td id="celda_I-8"></td><td id="celda_J-8"></td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td id="celda_A-9"></td><td id="celda_B-9"></td><td id="celda_C-9"></td><td id="celda_D-9"></td><td id="celda_E-9"></td><td id="celda_F-9"></td><td id="celda_G-9"></td><td id="celda_H-9"></td><td id="celda_I-9"></td><td id="celda_J-9"></td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td id="celda_A-10"></td><td id="celda_B-10"></td><td id="celda_C-10"></td><td id="celda_D-10"></td><td id="celda_E-10"></td><td id="celda_F-10"></td><td id="celda_G-10"></td><td id="celda_H-10"></td><td id="celda_I-10"></td><td id="celda_J-10"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="tablero-rival" class="tablero tablero__rival invisible">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td></td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td id="celda_A-1"></td><td id="celda_B-1"></td><td id="celda_C-1"></td><td id="celda_D-1"></td><td id="celda_E-1"></td><td id="celda_F-1"></td><td id="celda_G-1"></td><td id="celda_H-1"></td><td id="celda_I-1"></td><td id="celda_J-1"></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td id="celda_A-2"></td><td id="celda_B-2"></td><td id="celda_C-2"></td><td id="celda_D-2"></td><td id="celda_E-2"></td><td id="celda_F-2"></td><td id="celda_G-2"></td><td id="celda_H-2"></td><td id="celda_I-2"></td><td id="celda_J-2"></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td id="celda_A-3"></td><td id="celda_B-3"></td><td id="celda_C-3"></td><td id="celda_D-3"></td><td id="celda_E-3"></td><td id="celda_F-3"></td><td id="celda_G-3"></td><td id="celda_H-3"></td><td id="celda_I-3"></td><td id="celda_J-3"></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td id="celda_A-4"></td><td id="celda_B-4"></td><td id="celda_C-4"></td><td id="celda_D-4"></td><td id="celda_E-4"></td><td id="celda_F-4"></td><td id="celda_G-4"></td><td id="celda_H-4"></td><td id="celda_I-4"></td><td id="celda_J-4"></td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td id="celda_A-5"></td><td id="celda_B-5"></td><td id="celda_C-5"></td><td id="celda_D-5"></td><td id="celda_E-5"></td><td id="celda_F-5"></td><td id="celda_G-5"></td><td id="celda_H-5"></td><td id="celda_I-5"></td><td id="celda_J-5"></td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td id="celda_A-6"></td><td id="celda_B-6"></td><td id="celda_C-6"></td><td id="celda_D-6"></td><td id="celda_E-6"></td><td id="celda_F-6"></td><td id="celda_G-6"></td><td id="celda_H-6"></td><td id="celda_I-6"></td><td id="celda_J-6"></td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td id="celda_A-7"></td><td id="celda_B-7"></td><td id="celda_C-7"></td><td id="celda_D-7"></td><td id="celda_E-7"></td><td id="celda_F-7"></td><td id="celda_G-7"></td><td id="celda_H-7"></td><td id="celda_I-7"></td><td id="celda_J-7"></td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td id="celda_A-8"></td><td id="celda_B-8"></td><td id="celda_C-8"></td><td id="celda_D-8"></td><td id="celda_E-8"></td><td id="celda_F-8"></td><td id="celda_G-8"></td><td id="celda_H-8"></td><td id="celda_I-8"></td><td id="celda_J-8"></td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td id="celda_A-9"></td><td id="celda_B-9"></td><td id="celda_C-9"></td><td id="celda_D-9"></td><td id="celda_E-9"></td><td id="celda_F-9"></td><td id="celda_G-9"></td><td id="celda_H-9"></td><td id="celda_I-9"></td><td id="celda_J-9"></td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td id="celda_A-10"></td><td id="celda_B-10"></td><td id="celda_C-10"></td><td id="celda_D-10"></td><td id="celda_E-10"></td><td id="celda_F-10"></td><td id="celda_G-10"></td><td id="celda_H-10"></td><td id="celda_I-10"></td><td id="celda_J-10"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="barcos" class="barcos">
+                    <h4>Tus barcos</h4>
+                    <div class="barcos-linea">
+                        <div class="barco barco__4">
+                            <div class="barco__celda"></div>
+                            <div class="barco__celda"></div>
+                            <div class="barco__celda"></div>
+                            <div class="barco__celda"></div>
+                        </div>
+                    </div>
+                    <div class="barcos-linea">
+                        <div class="barco barco__3">
+                            <div class="barco__celda"></div>
+                            <div class="barco__celda"></div>
+                            <div class="barco__celda"></div>
+                        </div>
+                        <div class="barco barco__3">
+                            <div class="barco__celda"></div>
+                            <div class="barco__celda"></div>
+                            <div class="barco__celda"></div>
+                        </div>
+                    </div>
+                    <div class="barcos-linea">
+                        <div class="barco barco__2">
+                            <div class="barco__celda"></div>
+                            <div class="barco__celda"></div>
+                        </div>
+                        <div class="barco barco__2">
+                            <div class="barco__celda"></div>
+                            <div class="barco__celda"></div>
+                        </div>
+                        <div class="barco barco__2">
+                            <div class="barco__celda"></div>
+                            <div class="barco__celda"></div>
+                        </div>
+                    </div>
+                    <div class="barcos-linea">
+                        <div class="barco barco__1">
+                            <div class="barco__celda"></div>
+                        </div>
+                        <div class="barco barco__1">
+                            <div class="barco__celda"></div>
+                        </div>
+                        <div class="barco barco__1">
+                            <div class="barco__celda"></div>
+                        </div>
+                        <div class="barco barco__1">
+                            <div class="barco__celda"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
