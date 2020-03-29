@@ -5,6 +5,7 @@ var Vista = function(){
 Vista.prototype.comenzarJuego = function(){
     this.ocultarElementosPantallaPrincipal();
     this.ocultarFormularioComenzarJuego();
+    this.cambiarMensajeEstadoJuego( EstadoJuegoMensaje.COLOCANDO_BARCOS );
 };
 
 Vista.prototype.ocultarElementosPantallaPrincipal = function(){
@@ -22,6 +23,13 @@ Vista.prototype.ocultarFormularioComenzarJuego = function(){
     let formEl = document.getElementById('form-comenzar-juego');
     if( formEl ){
         formEl.classList.toggle('invisible');
+    }
+};
+
+Vista.prototype.cambiarMensajeEstadoJuego = function( mensajeEstadoJuego ){
+    let estadoJuegoEl = document.querySelector('.estado-juego');
+    if( estadoJuegoEl ){
+        estadoJuegoEl.innerHTML = mensajeEstadoJuego;
     }
 };
 
@@ -71,4 +79,86 @@ Vista.prototype.mostrarTableroRival = function(){
     if( barcosEl ){
         barcosEl.classList.add('invisible');
     }
+};
+
+Vista.prototype.mostrarMensaje = function(mensaje){
+    alert(mensaje);
+};
+
+Vista.prototype.celdaColocada = function( idCelda ){
+    let celdaEl = document.getElementById(idCelda);
+    if( celdaEl ){
+        celdaEl.classList.add('colocada');
+    }
+};
+
+Vista.prototype.barcoColocado = function(barcoEl, matrizCeldas){
+    if( barcoEl ){
+        barcoEl.classList.add('barco-colocado');
+        barcoEl.classList.remove('barco-seleccionado');
+    }
+    for( let i = 0; i < NUM_FILAS; i++ ){
+        for( let j = 0; j < NUM_COLUMNAS; j++ ){
+            if( matrizCeldas[i][j] == barcoEl.id ){
+                const idCelda = obtenerIdCelda(i, j);
+                this.pintarCeldaMatriz( TipoPintadoCelda.BARCO_COLOCADO, idCelda );
+            }
+        }
+    }
+};
+
+Vista.prototype.pintarCeldaMatriz = function( tipoPintado, idCelda ){
+    let celdaEl = document.querySelector('#' + idCelda);
+    if( celdaEl ){
+        switch(  tipoPintado ){
+            case TipoPintadoCelda.BARCO_COLOCADO:
+                celdaEl.classList.add('colocada-completo');
+                break;
+            case TipoPintadoCelda.VACIA:
+                //TODO: añadir las que faltan
+                celdaEl.classList.remove('colocada', 'colocada-completo');
+                break;
+        }
+    }
+};
+
+Vista.prototype.preguntarFinBarcosColocados = function(){
+    return confirm( "¿Es así como quieres dejar los barcos?" );
+};
+
+Vista.prototype.preguntarDeshacerBarco = function(){
+    return confirm( "¿Quieres deshacer el barco?" );
+};
+
+Vista.prototype.deshacerBarco = function( idBarco, matrizCeldas ){
+    let barcoEl = document.querySelector('#' + idBarco);
+    if( barcoEl ){
+        barcoEl.classList.remove('barco-colocado', 'barco-seleccionado');
+    }
+    for( let i = 0; i  < NUM_FILAS; i++ ){
+        for( let j = 0; j < NUM_COLUMNAS; j++ ){
+            if( matrizCeldas[i][j] == idBarco ){
+                const idCelda = obtenerIdCelda(i, j);
+                this.pintarCeldaMatriz( TipoPintadoCelda.VACIA, idCelda );
+            }
+        }
+    }
+};
+
+Vista.prototype.seleccionarBarco = function(idBarco){
+    let barcoEl = document.querySelector('#' + idBarco);
+    if( barcoEl ){
+        barcoEl.classList.add('barco-seleccionado');
+    }
+};
+
+Vista.prototype.deshabilitarTableroPropio = function(){
+    let tableroPropioEl = document.querySelector('#tablero-propio');
+    if( tableroPropioEl ){
+        tableroPropioEl.classList.add('deshabilitado');
+    }
+};
+
+let obtenerIdCelda = ( fila, columna ) => {
+    return `celda_${LETRAS[columna]}-${fila+1}`;
 };

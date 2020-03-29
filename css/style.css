@@ -40,6 +40,10 @@ main{
     display: none !important;
 }
 
+.deshabilitado{
+    pointer-events: none;
+}
+
 @supports (-webkit-text-stroke: 1px var(--color-white)) {
     h1{
       -webkit-text-stroke: .1px var(--color-white);

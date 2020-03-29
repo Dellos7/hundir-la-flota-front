@@ -36,6 +36,11 @@
     color: var(--color-primary);
 }
 
+.estado-juego{
+    text-align: center;
+    color: #ffeb3b;
+}
+
 .tablero{
     position: relative;
     width: 100%;
@@ -60,15 +65,28 @@
 
 .tablero table thead td, .tablero table tbody td:first-child{
     border: none;
+    pointer-events: none;
 }
 
 .tablero table tbody td:not(:first-child){
     background-color: var(--color-white);
 }
 
+.tablero table tbody td:first-child{
+    pointer-events: none;
+}
+
 /* todo: quitar */
 .tablero.tablero__rival table tbody td:not(:first-child){
     background-color: yellow;
+}
+
+.tablero table tbody td.colocada{
+    background-color: gray;
+}
+
+.tablero table tbody td.colocada-completo{
+    background-color: greenyellow;
 }
 
 /** Media queries **/
