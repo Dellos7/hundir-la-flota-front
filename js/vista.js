@@ -162,3 +162,27 @@ Vista.prototype.deshabilitarTableroPropio = function(){
 let obtenerIdCelda = ( fila, columna ) => {
     return `celda_${LETRAS[columna]}-${fila+1}`;
 };
+
+Vista.prototype.rellenarDatosFormulario = function( nombreJugador, idPartida ){
+    let nombreJugadorEl = document.getElementById('nombre-jugador');
+    if( nombreJugadorEl ){
+        nombreJugadorEl.value = nombreJugador;
+    }
+    let idPartidaEl = document.getElementById('id-partida');
+    if( idPartidaEl ){
+        idPartidaEl.value = idPartida;
+    }
+};
+
+Vista.prototype.obtenerDatosFormulario = function(){
+    let nombreJugador = '', idPartida = '';
+    let nombreJugadorEl = document.getElementById('nombre-jugador');
+    if( nombreJugadorEl ){
+        nombreJugador = nombreJugadorEl.value;
+    }
+    let idPartidaEl = document.getElementById('id-partida');
+    if( idPartidaEl ){
+        idPartida = idPartidaEl.value;
+    }
+    return { nombreJugador, idPartida };
+};

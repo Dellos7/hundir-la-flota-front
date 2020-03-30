@@ -1,5 +1,6 @@
-var Controlador = function( vista ){
+var Controlador = function( vista, storage ){
     this.vista = vista;
+    this.storage = storage;
     this.estado = EstadoJuego.SIN_JUGAR;
     this.barcoSeleccionado = null;
     this.numBarcosFaltan = NUM_BARCOS;
@@ -10,6 +11,8 @@ var Controlador = function( vista ){
 Controlador.prototype.comenzarJuego = function(){
     this.estado = EstadoJuego.COLOCANDO_BARCOS;
     this.vista.comenzarJuego();
+    let { nombreJugador, idPartida } = this.vista.obtenerDatosFormulario();
+    this.storage.guardarDatosForm( nombreJugador, idPartida );
     return false;
 };
 

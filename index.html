@@ -11,6 +11,7 @@
         <script type="text/javascript" src="js/global.js"></script>
         <script type="text/javascript" src="js/vista.js"></script>
         <script type="text/javascript" src="js/controlador.js"></script>
+        <script type="text/javascript" src="js/storage.js"></script>
         <script type="text/javascript" src="js/hundirLaFlota.js"></script>
     </head>
     <body>
@@ -18,11 +19,25 @@
             <h1>Hundir la flota</h1>
         </header>
         <main>
-            <form id="form-comenzar-juego" method="POST" onsubmit="return controlador.comenzarJuego()">
-                <div class="form__linea">
-                    <button class="form__button" type="submit">Jugar</button>
-                </div>
-            </form>
+            <div class="form-wrapper">
+                <form id="form-comenzar-juego" method="POST" onsubmit="return controlador.comenzarJuego()">
+                    <div class="form__linea">
+                        <label for="nombre-jugador">Nombre:</label>
+                    </div>
+                    <div class="form__linea">
+                        <input type="text" id="nombre-jugador" name="nombre-jugador">
+                    </div>
+                    <div class="form__linea">
+                        <label for="id-partida">Id partida:</label>
+                    </div>
+                    <div class="form__linea">
+                        <input type="text" id="id-partida" name="id-partida">
+                    </div>
+                    <div class="form__linea">
+                        <button class="form__button" type="submit">Jugar</button>
+                    </div>
+                </form>
+            </div>
             <div id="juego" class="juego invisible">
                 <div class="selector-tablero">
                     <div onclick="controlador.seleccionarMiTablero()" class="selector-tablero-selector selector-tablero-selector__propio selector-tablero-selector__seleccionado">Mi tablero</div>
